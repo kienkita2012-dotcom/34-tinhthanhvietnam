@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Khám Phá Miền Trung Việt Nam</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="VIỆT_NAM.png" />
+    <link rel="stylesheet" href="mientrung.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Khám Phá Miền Trung Việt Nam</h1>
+      <p>Văn hóa, cảnh quan, ẩm thực đặc sắc 14 tỉnh miền Trung</p>
+    </header>
+
+    <main>
+     <section class="provinces-container">
+  <!-- Thanh Hóa -->
+  <div class="province-card" onclick="openPopup('Thanh Hóa')">
+    <div class="province-image" style="background-image:url('mien trung/thanh hoa.png')"></div>
+    <div class="province-info">
+      <h2>Thanh Hóa</h2>
+      <p>Vùng đất giàu truyền thống lịch sử, nhiều danh lam thắng cảnh và di tích.</p>
+    </div>
+  </div>
+
+  <!-- Nghệ An -->
+  <div class="province-card" onclick="openPopup('Nghệ An')">
+    <div class="province-image" style="background-image:url('mien trung/nghe an.png')"></div>
+    <div class="province-info">
+      <h2>Nghệ An</h2>
+      <p>Quê hương Bác Hồ, nổi bật với văn hóa dân gian và cảnh quan thiên nhiên.</p>
+    </div>
+  </div>
+
+  <!-- Hà Tĩnh -->
+  <div class="province-card" onclick="openPopup('Hà Tĩnh')">
+    <div class="province-image" style="background-image:url('mien trung/ha tinh.png')"></div>
+    <div class="province-info">
+      <h2>Hà Tĩnh</h2>
+      <p>Vùng đất anh hùng, nhiều di tích văn hóa cách mạng và lễ hội truyền thống.</p>
+    </div>
+  </div>
+
+  <!-- Quảng Bình -->
+  <div class="province-card" onclick="openPopup('Quảng Bình')">
+    <div class="province-image" style="background-image:url('mien trung/quang binh.png')"></div>
+    <div class="province-info">
+      <h2>Quảng Bình</h2>
+      <p>Vương quốc hang động, nổi tiếng với Phong Nha – Kẻ Bàng.</p>
+    </div>
+  </div>
+
+  <!-- Quảng Trị -->
+  <div class="province-card" onclick="openPopup('Quảng Trị')">
+    <div class="province-image" style="background-image:url('mien trung/quang tri.png')"></div>
+    <div class="province-info">
+      <h2>Quảng Trị</h2>
+      <p>Đất thiêng cách mạng, nhiều di tích lịch sử và biển Cửa Việt.</p>
+    </div>
+  </div>
+
+  <!-- Thừa Thiên Huế -->
+  <div class="province-card" onclick="openPopup('Thừa Thiên Huế')">
+    <div class="province-image" style="background-image:url('mien trung/thua thien hue.png')"></div>
+    <div class="province-info">
+      <h2>Thừa Thiên Huế</h2>
+      <p>Kinh đô xưa, lăng tẩm, chùa chiền, sông Hương thơ mộng.</p>
+    </div>
+  </div>
+
+  <!-- Quảng Nam -->
+  <div class="province-card" onclick="openPopup('Quảng Nam')">
+    <div class="province-image" style="background-image:url('mien trung/quang nam.png')"></div>
+    <div class="province-info">
+      <h2>Quảng Nam</h2>
+      <p>Phố cổ Hội An, Mỹ Sơn, trung tâm văn hóa Chăm Pa.</p>
+    </div>
+  </div>
+
+  <!-- Quảng Ngãi -->
+  <div class="province-card" onclick="openPopup('Quảng Ngãi')">
+    <div class="province-image" style="background-image:url('mien trung/quang ngai.png')"></div>
+    <div class="province-info">
+      <h2>Quảng Ngãi</h2>
+      <p>Vùng đất của lễ hội Chăm và đảo Lý Sơn nổi tiếng với biển xanh và núi non.</p>
+    </div>
+  </div>
+
+  <!-- Bình Định -->
+  <div class="province-card" onclick="openPopup('Bình Định')">
+    <div class="province-image" style="background-image:url('mien trung/binh dinh.png')"></div>
+    <div class="province-info">
+      <h2>Bình Định</h2>
+      <p>Quê hương võ cổ truyền, Eo Gió, Tháp Chăm Bánh Ít và biển Quy Nhơn.</p>
+    </div>
+  </div>
+
+  <!-- Phú Yên -->
+  <div class="province-card" onclick="openPopup('Phú Yên')">
+    <div class="province-image" style="background-image:url('mien trung/phu yen.png')"></div>
+    <div class="province-info">
+      <h2>Phú Yên</h2>
+      <p>Vùng đất hoa vàng cỏ xanh, nổi bật với Gành Đá Đĩa, đầm Ô Loan và biển Vịnh Xuân Đài.</p>
+    </div>
+  </div>
+
+  <!-- Khánh Hòa -->
+  <div class="province-card" onclick="openPopup('Khánh Hòa')">
+    <div class="province-image" style="background-image:url('mien trung/khanh hoa.png')"></div>
+    <div class="province-info">
+      <h2>Khánh Hòa</h2>
+      <p>Trung tâm du lịch biển miền Trung với Nha Trang, Tháp Bà Ponagar, vịnh Vân Phong.</p>
+    </div>
+  </div>
+
+  <!-- Ninh Thuận -->
+  <div class="province-card" onclick="openPopup('Ninh Thuận')">
+    <div class="province-image" style="background-image:url('mien trung/ninh thuan.png')"></div>
+    <div class="province-info">
+      <h2>Ninh Thuận</h2>
+      <p>Vùng đất của đồng bào Chăm, nổi bật với lễ hội Kate, vườn nho và tháp Po Klong Garai.</p>
+    </div>
+  </div>
+
+  <!-- Bình Thuận -->
+  <div class="province-card" onclick="openPopup('Bình Thuận')">
+    <div class="province-image" style="background-image:url('mien trung/binh thuan.png')"></div>
+    <div class="province-info">
+      <h2>Bình Thuận</h2>
+      <p>Du lịch biển Mũi Né, Đồi Cát Bay, hải sản tươi ngon và văn hóa Chăm đặc sắc.</p>
+    </div>
+  </div>
+
+  <!-- Đà Nẵng -->
+  <div class="province-card" onclick="openPopup('Đà Nẵng')">
+    <div class="province-image" style="background-image:url('mien trung/da nang.png')"></div>
+    <div class="province-info">
+      <h2>Đà Nẵng</h2>
+      <p>Thành phố biển năng động, Cầu Rồng, Bà Nà Hills, biển Mỹ Khê và ẩm thực phong phú.</p>
+    </div>
+  </div>
+</section>
+
+      </section>
+
+      <a href="trangchinh.html" class="back-link">← Quay lại trang chính</a>
+    </main>
+
+    <footer>&copy; 2025 Khám Phá Miền Trung Việt Nam</footer>
+
+    <div id="popup" class="popup-overlay">
+      <div class="popup-box">
+        <span class="close-btn" onclick="closePopup()">&times;</span>
+        <h2 id="popup-title"></h2>
+        <p id="popup-content"></p>
+      </div>
+    </div>
+
+    <script>
+      const info = {
+        "Thanh Hóa": `
+    <b>Văn hoá:</b> Nổi tiếng với văn hoá Lam Kinh, lễ hội truyền thống như lễ hội Lam Kinh, hội đền Bà Triệu.<br>
+    <b>Công trình nổi tiếng:</b> Lam Kinh, đền Bà Triệu, cầu Hàm Rồng, biển Sầm Sơn.<br>
+    <b>Ẩm thực:</b> Nem chua Thanh Hóa, bánh răng bừa, bánh cuốn lá cải, cá rô kho niêu đất.<br>
+    <b>Điểm du lịch:</b> Biển Sầm Sơn, Pù Luông, núi Trường Lệ.
+  `,
+
+  "Nghệ An": `
+    <b>Văn hoá:</b> Vùng đất địa linh, nơi sinh ra Chủ tịch Hồ Chí Minh, nổi bật với ca trù và hát chèo.<br>
+    <b>Công trình nổi tiếng:</b> Lăng Chủ tịch Hồ Chí Minh ở Kim Liên, đền Cờn, biển Cửa Lò, núi Quyết.<br>
+    <b>Ẩm thực:</b> Chè lam, gỏi cá trích, cá rô kho tộ, bánh mướt Nghệ An.<br>
+    <b>Điểm du lịch:</b> Biển Cửa Lò, Quỳnh Lưu, Pù Mát, đồi chè Nghệ An.
+  `,
+
+  "Hà Tĩnh": `
+    <b>Văn hoá:</b> Nơi có nhiều lễ hội truyền thống, văn hoá dân gian phong phú.<br>
+    <b>Công trình nổi tiếng:</b> Chùa Hương Tích, biển Thiên Cầm, đền Chế Lan Viên.<br>
+    <b>Ẩm thực:</b> Bánh bèo, nem chua Hà Tĩnh, gà đồi, cháo canh.<br>
+    <b>Điểm du lịch:</b> Biển Thiên Cầm, Vũ Quang, Phố cổ Hà Tĩnh.
+  `,
+
+  "Quảng Bình": `
+    <b>Văn hoá:</b> Vùng đất của lịch sử và văn hóa Cố đô Quảng Bình, dân ca Ví, Giặm.<br>
+    <b>Công trình nổi tiếng:</b> Động Phong Nha, động Thiên Đường, sông Son, cầu Nhật Lệ.<br>
+    <b>Ẩm thực:</b> Bánh xèo Quảng Bình, cháo canh, gỏi cá, mắm ruốc.<br>
+    <b>Điểm du lịch:</b> Vườn quốc gia Phong Nha – Kẻ Bàng, hang Sơn Đoòng, biển Nhật Lệ.
+  `,
+
+  "Quảng Trị": `
+    <b>Văn hoá:</b> Nơi có di tích lịch sử chiến tranh, văn hoá lễ hội truyền thống.<br>
+    <b>Công trình nổi tiếng:</b> Thành cổ Quảng Trị, cầu Hiền Lương, chùa Linh Quang.<br>
+    <b>Ẩm thực:</b> Bún hến, bánh lọc, cháo canh.<br>
+    <b>Điểm du lịch:</b> Vịnh Vũng Chùa, đảo Cồn Cỏ, Hồ Xá, Khe Sanh.
+  `,
+
+  "Thừa Thiên Huế": `
+    <b>Văn hoá:</b> Cố đô Huế với triều Nguyễn, ca Huế, nhã nhạc cung đình.<br>
+    <b>Công trình nổi tiếng:</b> Đại Nội, lăng Tự Đức, lăng Khải Định, chùa Thiên Mụ.<br>
+    <b>Ẩm thực:</b> Bún bò Huế, cơm hến, chè Huế, nem Huế.<br>
+    <b>Điểm du lịch:</b> Sông Hương, đồi Vọng Cảnh, biển Lăng Cô, phá Tam Giang.
+  `,
+
+  "Quảng Nam": `
+    <b>Văn hoá:</b> Hội An – di sản văn hoá thế giới, lễ hội truyền thống phong phú.<br>
+    <b>Công trình nổi tiếng:</b> Phố cổ Hội An, thánh địa Mỹ Sơn, cầu Cổ Hội An, Làng gốm Thanh Hà.<br>
+    <b>Ẩm thực:</b> Cao lầu, mì Quảng, bánh tráng cuốn thịt heo, chè bắp.<br>
+    <b>Điểm du lịch:</b> Hội An, Mỹ Sơn, Cù Lao Chàm, biển An Bàng.
+  `,
+
+  "Quảng Ngãi": `
+    <b>Văn hoá:</b> Vùng đất của văn hoá Chăm và lễ hội truyền thống.<br>
+    <b>Công trình nổi tiếng:</b> Tháp Chàm Mỹ Sơn, Lý Sơn, núi Thiên Ấn, đền Trương Hán Siêu.<br>
+    <b>Ẩm thực:</b> Mắm nêm, cá bống sông Trà, bánh xèo, gỏi tôm.<br>
+    <b>Điểm du lịch:</b> Lý Sơn, Sa Huỳnh, núi Thiên Ấn, biển Mỹ Khê.
+  `,
+
+  "Bình Định": `
+    <b>Văn hoá:</b> Nổi tiếng với võ cổ truyền Bình Định, lễ hội truyền thống.<br>
+    <b>Công trình nổi tiếng:</b> Tháp Chăm Bánh Ít, Eo Gió, đầm Thị Nại, Quần thể di tích Tây Sơn.<br>
+    <b>Ẩm thực:</b> Bánh hỏi cháo lòng, nem nướng, mắm nhum.<br>
+    <b>Điểm du lịch:</b> Eo Gió, đảo Nhơn Lý, biển Quy Nhơn.
+  `,
+
+  "Phú Yên": `
+    <b>Văn hoá:</b> Vùng đất hoa vàng cỏ xanh, lễ hội truyền thống địa phương.<br>
+    <b>Công trình nổi tiếng:</b> Gành Đá Đĩa, Vũng Rô, núi Nhạn, đầm Ô Loan.<br>
+    <b>Ẩm thực:</b> Bánh xèo Phú Yên, cá ngừ đại dương, hải sản tươi sống.<br>
+    <b>Điểm du lịch:</b> Gành Đá Đĩa, Vịnh Xuân Đài, đầm Ô Loan.
+  `,
+
+  "Khánh Hòa": `
+    <b>Văn hoá:</b> Nổi tiếng với văn hoá Chăm Pa và các lễ hội biển.<br>
+    <b>Công trình nổi tiếng:</b> Vinpearl Nha Trang, Tháp Bà Ponagar, Hòn Chồng, Hòn Tằm.<br>
+    <b>Ẩm thực:</b> Nem nướng Ninh Hòa, bánh căn, hải sản tươi sống.<br>
+    <b>Điểm du lịch:</b> Nha Trang, Hòn Mun, Hòn Tằm, vịnh Vân Phong.
+  `,
+
+  "Ninh Thuận": `
+    <b>Văn hoá:</b> Vùng đất của đồng bào Chăm, lễ hội Kate nổi tiếng.<br>
+    <b>Công trình nổi tiếng:</b> Tháp Po Klong Garai, vườn nho Ninh Thuận, đồi cát Nam Cương.<br>
+    <b>Ẩm thực:</b> Nho Ninh Thuận, bánh tráng nướng, cơm gà Ninh Thuận.<br>
+    <b>Điểm du lịch:</b> Tháp Chàm, đồi cát Nam Cương, biển Bình Sơn.
+  `,
+
+  "Bình Thuận": `
+    <b>Văn hoá:</b> Nơi nổi tiếng với lễ hội truyền thống của dân tộc Chăm.<br>
+    <b>Công trình nổi tiếng:</b> Mũi Né, Đồi Cát Bay, Tháp Poshanu, biển Lagi.<br>
+    <b>Ẩm thực:</b> Bánh căn, bánh hỏi, hải sản Mũi Né.<br>
+    <b>Điểm du lịch:</b> Mũi Né, đồi cát Bay, Hòn Rơm, biển Lagi.
+  `
+};
+      
+
+      function openPopup(name) {
+        document.getElementById("popup-title").innerHTML = name;
+        document.getElementById("popup-content").innerHTML =
+          info[name] || "Chưa có thông tin chi tiết.";
+        document.getElementById("popup").style.display = "flex";
+      }
+
+      function closePopup() {
+        document.getElementById("popup").style.display = "none";
+      }
+    </script>
+  </body>
+</html>

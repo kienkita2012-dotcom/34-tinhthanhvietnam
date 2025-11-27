@@ -1,0 +1,275 @@
+/* Thiết lập cơ bản cho toàn bộ trang */
+body {
+  font-family: "Be Vietnam Pro", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa; /* Màu nền sáng nhẹ */
+  color: #333;
+  line-height: 1.6;
+}
+
+/* --- HEADER & NAVIGATION --- */
+header {
+  background-color: #004d40; /* Màu xanh đậm truyền thống */
+  color: white;
+  padding: 1rem 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 40px;
+  margin-right: 10px;
+  border-radius: 50%;
+  /* Sử dụng placeholder tạm thời vì không có file ảnh VIỆT_NAM.png */
+  background-color: #ffffff;
+  object-fit: cover;
+}
+
+.logo h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.3s ease, border-radius 0.3s ease;
+  border-radius: 6px;
+  font-weight: 400;
+}
+
+nav ul li a:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* --- MAIN CONTENT LAYOUT --- */
+main {
+  padding: 2rem 5%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Tiêu đề chung cho các section */
+h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #004d40;
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: #ff6f00; /* Màu cam nổi bật */
+  margin: 8px auto 0;
+  border-radius: 1.5px;
+}
+
+/* --- INTRO SECTION --- */
+.intro {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  margin-bottom: 3rem;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.intro h2 {
+  color: #00796b;
+  font-size: 1.75rem;
+  margin-top: 0;
+}
+
+.intro h2::after {
+  background-color: #00796b;
+}
+
+.intro p {
+  font-size: 1.1rem;
+  max-width: 800px;
+  margin: 1rem auto 0;
+}
+
+/* --- PROVINCES SECTION --- */
+.provinces {
+  margin-bottom: 3rem;
+}
+
+.province-list {
+  display: grid;
+  /* Thiết lập responsive: 4 cột trên desktop, 2 cột trên tablet, 1 cột trên mobile */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.province-item {
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.province-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.province-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.province-item:hover img {
+  transform: scale(1.05);
+}
+
+.province-item h3 {
+  color: #e64a19; /* Màu đỏ đất */
+  font-size: 1.4rem;
+  margin: 1rem 1rem 0.5rem 1rem;
+}
+
+.province-item p {
+  font-size: 0.95rem;
+  padding: 0 1rem 1.5rem 1rem;
+  margin: 0;
+}
+
+/* --- FOOTER --- */
+footer {
+  background-color: #333;
+  color: #ccc;
+  text-align: center;
+  padding: 1.5rem 5%;
+  font-size: 0.9rem;
+  margin-top: 2rem;
+}
+
+/* --- RESPONSIVE DESIGN (Cho các thiết bị di động) --- */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem 5%;
+  }
+
+  .logo {
+    margin-bottom: 1rem;
+  }
+
+  .logo h1 {
+    font-size: 1.3rem;
+  }
+
+  nav ul {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  nav ul li {
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  nav ul li a {
+    display: block;
+    text-align: center;
+    padding: 0.75rem 0;
+  }
+
+  .province-list {
+    grid-template-columns: 1fr; /* Một cột trên mobile */
+  }
+
+  .intro {
+    padding: 1.5rem;
+  }
+
+  .intro h2 {
+    font-size: 1.5rem;
+  }
+}
+
+.close-button:hover,
+.close-button:focus {
+  color: #000;
+  text-decoration: none;
+}
+
+/* Định dạng nội dung tác giả */
+.author-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border: 3px solid #007bff;
+}
+.author-info p {
+  margin: 8px 0;
+}
+
+/* Hiệu ứng mờ dần khi mở modal */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.province-link {
+  text-decoration: none; /* Bỏ gạch chân */
+  color: inherit; /* Giữ màu chữ (thường là đen) */
+}
+
+/* Đảm bảo mỗi mục tỉnh thành hiển thị như một khối */
+.province-item {
+  /* Đảm bảo các định dạng cũ của bạn vẫn áp dụng */
+  display: block;
+  /* ... các định dạng khác như border, box-shadow, v.v. ... */
+}
+
+.province-link:hover .province-item {
+  /* Thêm hiệu ứng hover nếu cần, ví dụ: */
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+/* ---------------------------------------------------- */
+/* Cập nhật CSS cho Modal (để đảm bảo hiệu ứng làm mờ hoạt động) */
+/* ---------------------------------------------------- */
+.modal-open > *:not(.modal):not(script) {
+  /* Áp dụng hiệu ứng làm mờ cho các thành phần chính, ngoại trừ modal và script */
+  filter: blur(4px);
+  pointer-events: none;
+  transition: filter 0.3s ease;
+}

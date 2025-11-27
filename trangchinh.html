@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Khám Phá Việt Nam: Ba Miền Đất Nước</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="VIỆT_NAM.png" />
+    <link rel="stylesheet" href="trangchinh.css" />
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="logo">KHÁM PHÁ VIỆT NAM</div>
+      <nav>
+        <a href="#bac">Miền Bắc</a>
+        <a href="#trung">Miền Trung</a>
+        <a href="#nam">Miền Nam</a>
+        <a href="#tintuc">Tin tức</a>
+        <a id="openAuthorModal" class="nav-button">Về Tác giả</a>
+      </nav>
+    </header>
+
+    <section class="hero-section">
+      <h1>Việt Nam: Hành trình Vạn dặm, Vạn trải nghiệm</h1>
+      <p>
+        Khám phá vẻ đẹp đa dạng từ núi rừng phía Bắc, di sản miền Trung đến đồng
+        bằng sông nước phương Nam.
+      </p>
+    </section>
+
+    <main class="main-content">
+      <section id="bac" class="region-section">
+        <img src="mienbac.png" alt="Miền Bắc" class="region-image" />
+        <div class="region-text">
+          <h2>Miền Bắc: Cái nôi Văn hóa</h2>
+          <p>
+            Nơi lưu giữ ngàn năm văn hiến với thủ đô Hà Nội cổ kính, những rặng
+            núi hùng vĩ Tây Bắc như Sapa, Hà Giang, và kỳ quan thiên nhiên Vịnh
+            Hạ Long. Nơi đây mang đậm dấu ấn lịch sử và văn hóa truyền thống.
+          </p>
+          <a href="mienbac.html" class="detail-link"
+            >Xem chi tiết các điểm đến Miền Bắc →</a
+          >
+        </div>
+      </section>
+
+      <section id="trung" class="region-section region-reverse">
+        <div class="region-text">
+          <h2>Miền Trung: Con đường Di sản</h2>
+          <p>
+            Miền đất của những Di sản Thế giới như Cố đô Huế, Phố cổ Hội An. Nơi
+            đây có bờ biển dài tuyệt đẹp như Đà Nẵng, Nha Trang, và là vùng đất
+            kiên cường với thiên nhiên khắc nghiệt nhưng giàu lòng mến khách.
+          </p>
+          <a href="mientrung.html" class="detail-link"
+            >Xem chi tiết các điểm đến Miền Trung →</a
+          >
+        </div>
+        <img src="mientrung.png" alt="Miền Trung" class="region-image" />
+      </section>
+
+      <section id="nam" class="region-section">
+        <img src="miennam.png" alt="Miền Nam" class="region-image" />
+        <div class="region-text">
+          <h2>Miền Nam: Sôi động và Phóng khoáng</h2>
+          <p>
+            Trung tâm kinh tế lớn nhất cả nước là Thành phố Hồ Chí Minh năng
+            động. Miền Tây Nam Bộ nổi tiếng với cuộc sống sông nước, chợ nổi Cái
+            Răng và vườn trái cây quanh năm. Đây là miền đất của sự cởi mở và
+            phát triển nhanh chóng.
+          </p>
+          <a href="miennam.html" class="detail-link"
+            >Xem chi tiết các điểm đến Miền Nam →</a
+          >
+        </div>
+      </section>
+    </main>
+    <a href="trangchu(home).html" class="detail-link1"
+      >← Quay lại trang chính</a
+    >
+    <footer class="main-footer">
+      <div id="tintuc">
+        <h3>Tin tức & Liên hệ</h3>
+        <p>Đăng ký nhận bản tin du lịch mới nhất:</p>
+        <form action="#">
+          <input type="email" placeholder="Nhập email của bạn" />
+          <button type="submit">Đăng ký</button>
+        </form>
+      </div>
+      <p>&copy; 2025 Việt Nam Du Ký. Bảo lưu mọi quyền.</p>
+    </footer>
+
+    <div id="authorModal" class="modal">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h2>Về Tác giả</h2>
+        <div class="author-info">
+          <p>Thông tin chi tiết về người tạo nội dung.</p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const modal = document.getElementById("authorModal");
+      const openBtn = document.getElementById("openAuthorModal");
+      const closeBtn = document.querySelector(".close-button");
+
+      openBtn.onclick = function () {
+        modal.style.display = "block";
+        document.body.classList.add("modal-open");
+      };
+
+      closeBtn.onclick = function () {
+        modal.style.display = "none";
+        document.body.classList.remove("modal-open");
+      };
+
+      window.onclick = function (event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+          document.body.classList.remove("modal-open");
+        }
+      };
+    </script>
+  </body>
+</html>

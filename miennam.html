@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Khám Phá Miền Nam Việt Nam</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="VIỆT_NAM.png" />
+    <link rel="stylesheet" href="miennam.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Khám Phá Miền Nam Việt Nam</h1>
+      <p>Văn hóa, cảnh quan, ẩm thực đặc sắc các tỉnh miền Nam</p>
+    </header>
+
+    <main>
+      <section class="provinces-container" id="provinces-container">
+        <!-- Các card sẽ được tạo tự động bằng JS -->
+      </section>
+    </main>
+
+    <!-- Popup hiển thị thông tin -->
+    <div id="popup" class="popup" onclick="closePopup()">
+      <div class="popup-content" onclick="event.stopPropagation()">
+        <span class="close-btn" onclick="closePopup()">&times;</span>
+        <h2 id="popup-title"></h2>
+        <div id="popup-content"></div>
+      </div>
+    </div>
+
+    <script>
+      const provinces = [
+        {
+          name: "TP. Hồ Chí Minh",
+          img: "mien nam/ho chi minh.png",
+          shortDesc: "Trung tâm kinh tế, văn hóa, giải trí lớn nhất miền Nam.",
+          info: `<b>Văn hóa:</b> Trung tâm kinh tế, văn hóa và giải trí lớn nhất miền Nam.<br>
+              <b>Công trình nổi tiếng:</b> Dinh Độc Lập, Nhà thờ Đức Bà, chợ Bến Thành.<br>
+              <b>Ẩm thực:</b> Bánh mì, hủ tiếu, cơm tấm.<br>
+              <b>Điểm du lịch:</b> Bến Nhà Rồng, Thảo Cầm Viên.`,
+        },
+        {
+          name: "Bình Dương",
+          img: "mien nam/binh duong.png",
+          shortDesc: "Khu công nghiệp phát triển, nhiều lễ hội truyền thống.",
+          info: `<b>Văn hóa:</b> Nổi bật với các lễ hội truyền thống.<br>
+              <b>Công trình nổi tiếng:</b> Đại Nam Văn Hiến, chùa Bà Thiên Hậu.<br>
+              <b>Ẩm thực:</b> Bánh bèo Lái Thiêu, gỏi cuốn.<br>
+              <b>Điểm du lịch:</b> Đại Nam Văn Hiến, hồ sinh thái.`,
+        },
+        {
+          name: "Bình Phước",
+          img: "mien nam/binh phuoc.png",
+          shortDesc:
+            "Vùng đất nông nghiệp với rừng nguyên sinh và văn hóa dân tộc thiểu số.",
+          info: `<b>Văn hóa:</b> Đậm nét văn hóa dân tộc S’tiêng.<br>
+              <b>Công trình nổi tiếng:</b> Hồ Cần Đơn, núi Bà Rá, vườn cao su.<br>
+              <b>Ẩm thực:</b> Lẩu cá linh, bánh cuốn lá rừng.<br>
+              <b>Điểm du lịch:</b> Hồ Thác Mơ, núi Bà Rá, rừng cao su.`,
+        },
+        {
+          name: "Tây Ninh",
+          img: "mien nam/tay ninh.png",
+          shortDesc: "Nổi tiếng với Tòa Thánh Cao Đài, núi Bà Đen.",
+          info: `<b>Văn hóa:</b> Trung tâm đạo Cao Đài.<br>
+              <b>Công trình nổi tiếng:</b> Tòa Thánh Tây Ninh, núi Bà Đen.<br>
+              <b>Ẩm thực:</b> Bánh canh Trảng Bàng, bún bò Tây Ninh.<br>
+              <b>Điểm du lịch:</b> Núi Bà Đen, Tòa Thánh Tây Ninh.`,
+        },
+        {
+          name: "Bà Rịa – Vũng Tàu",
+          img: "mien nam/ba ria vung tau.png",
+          shortDesc: "Thành phố biển nổi tiếng với bãi tắm Vũng Tàu.",
+          info: `<b>Văn hóa:</b> Lễ hội biển và du lịch nghỉ dưỡng.<br>
+              <b>Công trình nổi tiếng:</b> Bãi Sau, Bãi Trước, tượng Chúa Kitô.<br>
+              <b>Ẩm thực:</b> Hải sản tươi sống, bánh khọt.<br>
+              <b>Điểm du lịch:</b> Vịnh Marina, Bãi Trước, Bãi Sau.`,
+        },
+        {
+          name: "Bình Thuận",
+          img: "mien nam/binh thuan.png",
+          shortDesc: "Nổi tiếng với các bãi biển đẹp và đồi cát trắng.",
+          info: `<b>Văn hóa:</b> Đặc trưng với văn hóa Chăm và lễ hội truyền thống.<br>
+              <b>Công trình nổi tiếng:</b> Đồi cát Mũi Né, tháp Chàm Poshanư.<br>
+              <b>Ẩm thực:</b> Bánh căn, lẩu cá bớp.<br>
+              <b>Điểm du lịch:</b> Mũi Né, đồi cát Bay, Hòn Rơm, biển Lagi.`,
+        },
+        {
+          name: "Long An",
+          img: "mien nam/long an.png",
+          shortDesc: "Vùng đất nông nghiệp với nhiều di tích lịch sử.",
+          info: `<b>Văn hóa:</b> Đặc trưng với văn hóa nông nghiệp và các lễ hội truyền thống.<br>
+                <b>Công trình nổi tiếng:</b> Khu di tích lịch sử Rạch Gầm - Xoài Mút, chùa Tôn Thạnh.<br>
+                <b>Ẩm thực:</b> Bánh xèo, lẩu mắm.<br>
+                <b>Điểm du lịch:</b> Khu du lịch sinh thái Vàm Hồ, rừng tràm Gáo Giồng.`,
+        },
+        {
+          name: "Tiền Giang",
+          img: "mien nam/tien giang.png",
+          shortDesc: "Nổi tiếng với chợ nổi Cái Bè và vườn trái cây miền Tây.",
+          info: `<b>Văn hóa:</b> Đặc trưng với văn hóa sông nước và các lễ hội truyền thống.<br>
+                <b>Công trình nổi tiếng:</b> Chợ nổi Cái Bè, vườn trái cây Mỹ Tho.<br>
+                <b>Ẩm thực:</b> Hủ tiếu Mỹ Tho, bánh bèo.<br>
+                <b>Điểm du lịch:</b> Chợ nổi Cái Bè, vườn trái cây Mỹ Tho, cù lao Thới Sơn.`,
+        },
+        {
+          name: "Vĩnh Long",
+          img: "mien nam/vinh long.png",
+          shortDesc: "Nổi tiếng với chợ nổi và các cù lao xanh mát.",
+          info: `<b>Văn hóa:</b> Đặc trưng với văn hóa sông nước và các lễ hội truyền thống.<br>
+                <b>Công trình nổi tiếng:</b> Chợ nổi Vĩnh Long, cù lao An Bình.<br>
+                <b>Ẩm thực:</b> Bánh xèo, lẩu cá kèo.<br>
+                <b>Điểm du lịch:</b> Chợ nổi Vĩnh Long, cù lao An Bình, vườn trái cây.`,
+        },
+        {
+          name: "Cần Thơ",
+          img: "mien nam/can tho.png",
+          shortDesc:
+            "Thành phố lớn nhất miền Tây với chợ nổi và ẩm thực đặc sắc.",
+          info: `<b>Văn hóa:</b> Đặc trưng với văn hóa sông nước và các lễ hội truyền thống.<br>
+                    <b>Công trình nổi tiếng:</b> Chợ nổi Cái Răng, bến Ninh Kiều.<br>
+                    <b>Ẩm thực:</b> Bún riêu, bánh tằm bì.<br>
+                    <b>Điểm du lịch:</b> Chợ nổi Cái Răng, bến Ninh Kiều, vườn cò Bằng Lăng.`,
+        },
+        {
+          name: "Hậu Giang",
+          img: "mien nam/hau giang.png",
+          shortDesc:
+            "Vùng đất nông nghiệp với nhiều kênh rạch và vườn cây trái.",
+          info: `<b>Văn hóa:</b> Đặc trưng với văn hóa sông nước và các lễ hội truyền thống.<br>
+                    <b>Công trình nổi tiếng:</b> Khu du lịch sinh thái Lung Ngọc Hoàng, chùa Phật Học.<br>
+                    <b>Ẩm thực:</b> Bánh xèo, lẩu cá linh.<br>
+                    <b>Điểm du lịch:</b> Khu du lịch sinh thái Lung Ngọc Hoàng, rừng tràm Cầu Ngang.`,
+        },
+        {
+          name: "Sóc Trăng",
+          img: "mien nam/soc trang.png",
+          shortDesc:
+            "Nổi tiếng với văn hóa đa dạng và các lễ hội truyền thống.",
+          info: `<b>Văn hóa:</b> Đặc trưng với văn hóa đa dạng của các dân tộc Kinh, Khmer và Hoa.<br>
+                    <b>Công trình nổi tiếng:</b> Chùa Dơi, chùa Đất Sét, lễ hội Ok Om Bok.<br>
+                    <b>Ẩm thực:</b> Bún nước lèo, bánh pía.<br>
+                    <b>Điểm du lịch:</b> Chùa Dơi, chùa Đất Sét, lễ hội Ok Om Bok.`,
+        },
+        {
+          name: "Bạc Liêu",
+          img: "mien nam/bac lieu.png",
+          shortDesc:
+            "Nổi tiếng với nhà công tử Bạc Liêu và các di tích lịch sử.",
+          info: `<b>Văn hóa:</b> Đặc trưng với văn hóa sông nước và các lễ hội truyền thống.<br>
+                    <b>Công trình nổi tiếng:</b> Nhà công tử Bạc Liêu, chùa Xiêm Cán.<br>
+                    <b>Ẩm thực:</b> Bánh tằm nướng, lẩu mắm.<br>
+                    <b>Điểm du lịch:</b> Nhà công tử Bạc Liêu, chùa Xiêm Cán, vườn chim Bạc Liêu.`,
+        },
+        {
+          name: "Cà Mau",
+          img: "mien nam/ca mau.png",
+          shortDesc:
+            "Vùng đất mũi Cà Mau với hệ sinh thái đa dạng và ẩm thực đặc sắc.",
+          info: `<b>Văn hóa:</b> Đặc trưng với văn hóa sông nước và các lễ hội truyền thống.<br>
+                    <b>Công trình nổi tiếng:</b> Mũi Cà Mau, rừng U Minh Hạ.<br>
+                    <b>Ẩm thực:</b> Lẩu mắm, ba khía.<br>
+                    <b>Điểm du lịch:</b> Mũi Cà Mau, rừng U Minh Hạ, vườn quốc gia Đất Mũi.`,
+        },
+        {
+          name: "Trà Vinh",
+          img: "mien nam/tra vinh.png",
+          shortDesc: "Nổi tiếng với văn hóa Khmer và các di tích lịch sử.",
+          info: `<b>Văn hóa:</b> Đặc trưng với văn hóa dân tộc Khmer.<br>
+                    <b>Công trình nổi tiếng:</b> Chùa Ang, chùa Âng.<br>
+                    <b>Ẩm thực:</b> Bún nước lèo, bánh canh chả cá.<br>
+                    <b>Điểm du lịch:</b> Chùa Ang, chùa Âng, rừng
+                    U Minh Đông.`,
+        },
+        {
+          name: "Đồng Tháp",
+          img: "mien nam/dong thap.png",
+          shortDesc:
+            "Nổi tiếng với vườn quốc gia Tràm Chim và làng hoa Sa Đéc.",
+          info: `<b>Văn hóa:</b> Đặc trưng với văn hóa sông nước và các lễ hội truyền thống.<br>
+                    <b>Công trình nổi tiếng:</b> Vườn quốc gia Tràm Chim, làng hoa Sa Đéc.<br>
+                    <b>Ẩm thực:</b> Bánh xèo, lẩu cá linh.<br>
+                    <b>Điểm du lịch:</b> Vườn quốc gia Tràm Chim, làng hoa Sa Đéc, cù lao Tân Phong.`,
+        },
+        {
+          name: "An Giang",
+          img: "mien nam/an giang.png",
+          shortDesc: "Nổi tiếng với núi Sam và chùa Bà Chúa Xứ.",
+          info: `<b>Văn hóa:</b> Đặc trưng với văn hóa sông nước và các lễ hội truyền thống.<br>
+                    <b>Công trình nổi tiếng:</b> Núi Sam, chùa Bà Chúa Xứ.<br>
+                    <b>Ẩm thực:</b> Bún cá, lẩu mắm.<br>
+                    <b>Điểm du lịch:</b> Núi Sam, chùa Bà Chúa Xứ, rừng tràm Trà Sư.`,
+        },
+        {
+          name: "Kiên Giang",
+          img: "mien nam/kien giang.png",
+          shortDesc: "Nổi tiếng với đảo Phú Quốc và hệ sinh thái đa dạng.",
+          info: `<b>Văn hóa:</b> Đặc trưng với văn hóa biển đảo và các lễ hội truyền thống.<br>
+                    <b>Công trình nổi tiếng:</b> Đảo Phú Quốc, rừng quốc gia U Minh Thượng.<br>
+                    <b>Ẩm thực:</b> Hải sản tươi sống, bánh canh ghẹ.<br>
+                    <b>Điểm du lịch:</b> Đảo Phú Quốc, rừng quốc gia U Minh Thượng, bãi biển Hà Tiên.`,
+        },
+        {
+          name: "Phú Quốc",
+          img: "mien nam/phu quoc.png",
+          shortDesc:
+            "Hòn đảo lớn nhất Việt Nam với bãi biển tuyệt đẹp và khu nghỉ dưỡng sang trọng.",
+          info: `<b>Văn hóa:</b> Đặc trưng với văn hóa biển đảo và các lễ hội truyền thống.<br>
+                    <b>Công trình nổi tiếng:</b> Bãi Dài, suối Tranh, làng chài Hàm Ninh.<br>
+                    <b>Ẩm thực:</b> Hải sản tươi sống, gỏi cá trích.<br>
+                    <b>Điểm du lịch:</b> Bãi Dài, suối Tranh, làng chài Hàm Ninh, Vinpearl Land Phú Quốc.`,
+        },
+        {
+          name: "Côn Đảo",
+          img: "mien nam/con dao.png",
+          shortDesc:
+            "Quần đảo nổi tiếng với lịch sử hào hùng và cảnh quan thiên nhiên hoang sơ.",
+          info: `<b>Văn hóa:</b> Đặc trưng với lịch sử hào hùng và các lễ hội truyền thống.<br>
+                    <b>Công trình nổi tiếng:</b> Nhà tù Côn Đảo, bãi biển Đầm Trầu.<br>
+                    <b>Ẩm thực:</b> Hải sản tươi sống, bánh khọt.<br>
+                    <b>Điểm du lịch:</b> Nhà tù Côn Đảo, bãi biển Đầm Trầu, vườn quốc gia Côn Đảo.`,
+        },
+        {
+          name: "Hồ Tràm",
+          img: "mien nam/ho tram.png",
+          shortDesc:
+            "Khu du lịch biển nổi tiếng với bãi tắm dài và khu nghỉ dưỡng cao cấp.",
+          info: `<b>Văn hóa:</b> Đặc trưng với du lịch biển và các lễ hội truyền thống.<br>
+                    <b>Công trình nổi tiếng:</b> Bãi biển Hồ Tràm, khu du lịch The Grand Hồ Tràm.<br>
+                    <b>Ẩm thực:</b> Hải sản tươi sống, lẩu cá.<br>
+                    <b>Điểm du lịch:</b> Bãi biển Hồ Tràm, khu du lịch The Grand Hồ Tràm, suối nước nóng Bình Châu.`,
+        },
+      ];
+
+      const container = document.getElementById("provinces-container");
+
+      provinces.forEach((province) => {
+        const card = document.createElement("div");
+        card.className = "province-card";
+        card.onclick = () => openPopup(province.name);
+
+        card.innerHTML = `
+        <div class="province-image" style="background-image:url('${province.img}')"></div>
+        <div class="province-info">
+          <h2>${province.name}</h2>
+          <p>${province.shortDesc}</p>
+        </div>
+      `;
+        container.appendChild(card);
+      });
+
+      function openPopup(name) {
+        const province = provinces.find((p) => p.name === name);
+        document.getElementById("popup-title").innerHTML = name;
+        document.getElementById("popup-content").innerHTML = province
+          ? province.info
+          : "Chưa có thông tin";
+        document.getElementById("popup").style.display = "flex";
+      }
+
+      function closePopup() {
+        document.getElementById("popup").style.display = "none";
+      }
+    </script>
+    </section>
+
+      <a href="trangchinh.html" class="back-link">← Quay lại trang chính</a>
+    </main>
+  </body>
+</html>

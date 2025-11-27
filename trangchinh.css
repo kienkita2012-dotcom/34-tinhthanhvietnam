@@ -1,0 +1,220 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Arial", sans-serif;
+  line-height: 1.6;
+  background-color: #f8f8f8;
+  color: #333;
+  transition: filter 0.3s ease;
+}
+
+/* 1. HEADER & NAVIGATION */
+.main-header {
+  background-color: #004d40; /* Màu xanh lá đậm */
+  color: white;
+  padding: 15px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 25px;
+  padding: 5px 0;
+  transition: color 0.3s;
+}
+nav a:hover {
+  color: #ffd700; /* Vàng */
+}
+.nav-button {
+  background-color: #e6b800;
+  padding: 8px 15px;
+  border-radius: 5px;
+  margin-left: 25px;
+  transition: background-color 0.3s;
+}
+.nav-button:hover {
+  background-color: #cc9900;
+  color: white;
+}
+
+/* 2. HERO SECTION */
+.hero-section {
+  background-color: #c8e6c9; /* Xanh lá nhạt */
+  padding: 80px 50px;
+  text-align: center;
+}
+.hero-section h1 {
+  font-size: 3em;
+  margin-bottom: 10px;
+  color: #004d40;
+}
+.hero-section p {
+  font-size: 1.2em;
+  color: #555;
+}
+
+/* 3. MAIN CONTENT: 3 MIỀN */
+.main-content {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+.region-section {
+  display: flex;
+  align-items: center;
+  margin-bottom: 60px;
+  padding: 30px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+.region-image {
+  width: 40%;
+  min-height: 250px;
+  background-color: #ccc; /* Thay thế bằng hình ảnh thực tế */
+  border-radius: 8px;
+  display: flex; /* Dùng để hiển thị placeholder */
+  justify-content: center;
+  align-items: center;
+  font-style: italic;
+  color: #666;
+  margin-right: 40px;
+}
+.region-text {
+  width: 60%;
+}
+.region-section h2 {
+  color: #d35400; /* Màu cam đất */
+  margin-bottom: 15px;
+  font-size: 2em;
+}
+.region-reverse .region-image {
+  order: 2; /* Đảo vị trí ảnh */
+  margin-left: 40px;
+  margin-right: 0;
+}
+.region-reverse .region-text {
+  order: 1; /* Đảo vị trí chữ */
+}
+.detail-link {
+  display: inline-block;
+  margin-top: 15px;
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+.detail-link:hover {
+  text-decoration: underline;
+}
+.detail-link1 {
+  display: inline-block; /* Cho phép padding và margin hoạt động */
+  margin: 20px 0; /* Khoảng cách trên/dưới */
+  padding: 10px 18px; /* Khoảng cách bên trong */
+  background-color: #f97316; /* Màu cam nổi bật */
+  color: white; /* Chữ màu trắng */
+  text-decoration: none; /* Xóa gạch chân */
+  border-radius: 6px; /* Bo tròn góc */
+  font-weight: 600; /* In đậm vừa phải */
+  transition: all 0.3s ease; /* Hiệu ứng khi hover */
+}
+
+/* Hover: thay đổi màu nền và thêm bóng */
+.detail-link1:hover {
+  background-color: #ea580c; /* Cam đậm hơn khi hover */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Tạo cảm giác nổi */
+  transform: translateY(-2px); /* Nhẹ nâng lên khi hover */
+}
+
+/* 4. FOOTER */
+.main-footer {
+  background-color: #333;
+  color: white;
+  padding: 40px 50px;
+  text-align: center;
+}
+.main-footer h3 {
+  color: #ffd700;
+  margin-bottom: 15px;
+}
+.main-footer input[type="email"] {
+  padding: 10px;
+  width: 300px;
+  border: none;
+  border-radius: 5px 0 0 5px;
+}
+.main-footer button {
+  padding: 10px 20px;
+  background-color: #d35400;
+  color: white;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  margin-left: -5px; /* Để gắn liền với input */
+}
+.main-footer p {
+  margin-top: 20px;
+  font-size: 0.9em;
+  opacity: 0.8;
+}
+
+/* 5. MODAL STYLES (Giữ nguyên từ lần trước, thêm hiệu ứng làm mờ) */
+/* Hiệu ứng Làm mờ Nền */
+.modal-open > *:not(.modal) {
+  filter: blur(4px);
+  pointer-events: none;
+}
+
+/* Modal Box */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 30px;
+  width: 80%;
+  max-width: 400px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  position: relative;
+  animation: fadeIn 0.3s;
+}
+.close-button {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+}
+.close-button:hover {
+  color: #000;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
